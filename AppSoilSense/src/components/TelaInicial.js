@@ -2,7 +2,6 @@ import { View, Dimensions,
   StyleSheet,
   Text,
   TouchableOpacity,
-  Alert,
   Image,
 } from 'react-native';
 
@@ -12,13 +11,13 @@ export default function TelaInicial({ navigation }) {
 
   return (
     <View style={styles.container}>
-      {/* Logo (adicione o arquivo logo.png na pasta correta) */}
       
       <Image
         source={require('../assets/logo-soilsense.png')}
         style={styles.logo}
         resizeMode="contain"
-      /> 
+      />
+
       <View style={styles.card}>
         <Text style={styles.titulo}>Bem-vindo ao SoilSense</Text>
 

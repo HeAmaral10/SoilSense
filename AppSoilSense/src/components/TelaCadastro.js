@@ -10,32 +10,51 @@ import { View, Dimensions,
 
 const windowWidth = Dimensions.get('window').width;
 
-export default function TelaLogin({ navigation }) {
+export default function TelaCadastro({ navigation }) {
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
+    const [confirmarSenha, setConfirmarSenha] = useState('');
+    const [nome, setNome] = useState('');
+    const [ultimoNome, setUltimoNome] = useState('');
 
-    const handleLogin = () => {
-        if (!email || !senha) {
+    const handleCadastro = () => {
+        if (!email || !senha || !confirmarSenha || !nome || !ultimoNome) {
             Alert.alert('Erro', 'Por favor, preencha todos os campos.');
             return;
         }
+        if (senha !== confirmarSenha) {
+            Alert.alert('Erro', 'As senhas não coincidem.');
+            return;
+        }
         // Aqui você pode adicionar a lógica para enviar os dados de cadastro para o servidor
-        Alert.alert('Sucesso', 'Login efetuado com sucesso!');
-        navigation.navigate('PaginaInicial'); // Redireciona para a tela de login após o cadastro
+        Alert.alert('Sucesso', 'Conta criada com sucesso!');
+        navigation.navigate('TelaLogin'); // Redireciona para a tela de login após o cadastro
     };
 
   return (
     <View style={styles.container}>
-      {/* Logo (adicione o arquivo logo.png na pasta correta) */}
       
       <Image
         source={require('../assets/logo-soilsense.png')}
         style={styles.logo}
         resizeMode="contain"
-      /> 
-      <View style={styles.card}>
-        <Text style={styles.titulo}>Login</Text>
+      />
 
+      <View style={styles.card}>
+        <Text style={styles.titulo}>Cadastro</Text>
+
+        <TextInput
+            style={styles.input}
+            placeholder="Nome"
+            value={nome}
+            onChangeText={setNome}
+        />
+        <TextInput
+            style={styles.input}
+            placeholder="Sobrenome"
+            value={ultimoNome}
+            onChangeText={setUltimoNome}
+        />
         <TextInput
             style={styles.input}
             placeholder="Email"
@@ -49,15 +68,23 @@ export default function TelaLogin({ navigation }) {
             value={senha}
             onChangeText={setSenha}
         />
+        <TextInput
+            style={styles.input}
+            placeholder="Confirmar Senha"
+            secureTextEntry
+            value={confirmarSenha}
+            onChangeText={setConfirmarSenha}
+        />
 
         <TouchableOpacity
           style={styles.botao}
-          onPress={() => handleLogin()}>
-          <Text style={styles.textoBotao}>ENTRAR</Text>
+          onPress={() => handleCadastro()}>
+          <Text style={styles.textoBotao}>CRIAR CONTA</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.botao} onPress={() => navigation.navigate('TelaInicial')}>
-            <Text style={styles.textoBotao}>VOLTAR</Text>
+          <Text style={styles.textoBotao}>VOLTAR</Text>
         </TouchableOpacity>
+        
       </View>
     </View>
   );
@@ -75,7 +102,6 @@ const styles = StyleSheet.create({
     top: 40,
     width: 100,
     height: 100,
-    marginTop: 20,
   },
   card: {
     backgroundColor: '#4BB79E', // verde-azulado
@@ -84,7 +110,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     elevation: 8,
     width: windowWidth * 0.8,
-    marginTop: 100,
+    marginTop: 150,
   },
   titulo: {
     fontSize: 24,
@@ -114,5 +140,9 @@ const styles = StyleSheet.create({
     width: '100%',
     marginBottom: 10,
     paddingHorizontal: 10,
+    borderRadius: 5,
+    borderColor: '000000',
+    backgroundColor: '#fff', // Fundo branco para os inputs
+    color: '#000', // Texto preto para os inputs
   },
 });
