@@ -21,7 +21,7 @@ export default function TelaLogin({ navigation }) {
         }
         // Aqui você pode adicionar a lógica para enviar os dados de cadastro para o servidor
         Alert.alert('Sucesso', 'Login efetuado com sucesso!');
-        navigation.navigate('PaginaInicial'); // Redireciona para a tela de login após o cadastro
+        navigation.navigate('TelaPrincipal'); // Redireciona para a tela de login após o cadastro
     };
 
   return (
@@ -53,7 +53,7 @@ export default function TelaLogin({ navigation }) {
         <TouchableOpacity
           style={styles.botao}
           onPress={() => handleLogin()}>
-          <Text style={styles.textoBotao}>ENTRAR</Text>
+          <Text style={styles.textoBotao} onPress={() => navigation.navigate('TelaPrincipal')}>ENTRAR</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.botao} onPress={() => navigation.navigate('TelaInicial')}>
             <Text style={styles.textoBotao}>VOLTAR</Text>

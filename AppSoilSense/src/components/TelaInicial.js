@@ -31,7 +31,9 @@ export default function TelaInicial({ navigation }) {
           <Text style={styles.textoBotao}>CRIAR CONTA</Text>
         </TouchableOpacity>
       </View>
+
     </View>
+    
   );
 }
 
