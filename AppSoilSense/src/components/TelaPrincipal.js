@@ -1,10 +1,14 @@
-import { View, Image, StyleSheet, TouchableOpacity } from 'react-native';
 
-export default function TelaPrincipal({ navigation }) {
+import React from 'react';
+import { View, Image, StyleSheet, TouchableOpacity, Text, Dimensions } from 'react-native';
+
+export default function TelaPrincipal({ navigation, route }) {
+  const { usuarioId } = route.params || {};
+
   return (
     <View style={styles.container}>
-
-      <View style={styles.iconContainer}>
+      {/* Ícone de planta central no fundo */}
+      <View style={styles.iconBackgroundContainer}>
         <Image
           source={require('../assets/logo-soilsense.png')}
           style={styles.icon}
@@ -12,65 +16,89 @@ export default function TelaPrincipal({ navigation }) {
         />
       </View>
 
+      {/* Botões centrais */}
+      <View style={styles.buttonsContainer}>
+        <TouchableOpacity
+          style={styles.botao}
+          onPress={() => navigation.navigate('TelaDispositivo', { usuarioId })}
+        >
+          <Text style={styles.textoBotao}>Meus dispositivos</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.botao}
+          onPress={() => navigation.navigate('TelaConectar', { usuarioId })}
+        >
+          <Text style={styles.textoBotao}>Conectar um novo dispositivo</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.botao}
+          onPress={() => navigation.navigate('TelaGraficos', { usuarioId })}
+        >
+          <Text style={styles.textoBotao}>Dados</Text>
+        </TouchableOpacity>
+      </View>
+
+      {/* Menu inferior */}
       <View style={styles.menuContainer}>
-        <TouchableOpacity onPress={() => navigation.navigate('TelaGraficos')}>
-          <Image
-            source={require('../assets/graficos.png')}
-            style={styles.menuIcon}
-          />
+        <TouchableOpacity onPress={() => navigation.navigate('TelaGraficos', { usuarioId })}>
+          <Image source={require('../assets/graficos.png')} style={styles.menuIcon} />
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('TelaDispositivo')}>
-          <Image
-            source={require('../assets/logo-soilsense.png')}
-            style={styles.menuIcon}
-          />
+        <TouchableOpacity onPress={() => navigation.navigate('TelaDispositivo', { usuarioId })}>
+          <Image source={require('../assets/logo-soilsense.png')} style={styles.menuIcon} />
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('TelaPrincipal')}>
-          <Image
-            source={require('../assets/casa.png')}
-            style={styles.menuIcon}
-          />
+        <TouchableOpacity onPress={() => navigation.navigate('TelaPrincipal', { usuarioId })}>
+          <Image source={require('../assets/casa.png')} style={styles.menuIcon} />
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('TelaPerfil')}>
-          <Image
-            source={require('../assets/perfil.png')}
-            style={styles.menuIcon}
-          />
+        <TouchableOpacity onPress={() => navigation.navigate('TelaPerfil', { usuarioId })}>
+          <Image source={require('../assets/perfil.png')} style={styles.menuIcon} />
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('TelaInfo')}>
-          <Image
-            source={require('../assets/info.png')}
-            style={styles.menuIcon}
-          />
+        <TouchableOpacity onPress={() => navigation.navigate('TelaInfo', { usuarioId })}>
+          <Image source={require('../assets/info.png')} style={styles.menuIcon} />
         </TouchableOpacity>
       </View>
     </View>
   );
 }
 
+const windowWidth = Dimensions.get('window').width;
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#5EC36E', // verde de fundo da tela
+    backgroundColor: '#5EC36E',
+    position: 'relative',
   },
-  logoContainer: {
+  iconBackgroundContainer: {
     position: 'absolute',
-    top: 20,
-    left: 20,
-  },
-  logo: {
-    width: 100,
-    height: 40,
-  },
-  iconContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    top: '35%',
+    left: '25%',
+    zIndex: 0,
+    opacity: 0.15,
   },
   icon: {
     width: 200,
     height: 200,
-    opacity: 0.3,
+  },
+  buttonsContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    gap: 20,
+  },
+  botao: {
+    backgroundColor: '#4BB79E',
+    paddingVertical: 16,
+    width: windowWidth * 0.8,
+    borderRadius: 30,
+    alignItems: 'center',
+    elevation: 5,
+  },
+  textoBotao: {
+    color: '#000',
+    fontSize: 16,
+    fontWeight: 'bold',
   },
   menuContainer: {
     flexDirection: 'row',

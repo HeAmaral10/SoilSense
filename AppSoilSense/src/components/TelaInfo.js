@@ -15,8 +15,21 @@ export default function TelaInfo({ navigation }) {
         <View style={styles.card}>
           <Text style={styles.cardTitle}>Sobre o SoilSense</Text>
           <Text style={styles.cardText}>
-            O SoilSense é uma solução inteligente para monitoramento do solo,
-            auxiliando produtores na tomada de decisões precisas.
+            O aplicativo SoilSense é uma extensão prática e intuitiva do nosso sistema inteligente de monitoramento ambiental voltado para hortas e pequenas plantações. Criado para apoiar pequenos produtores, agricultores urbanos e amantes do cultivo doméstico, o app permite o acompanhamento em tempo real de variáveis essenciais para o desenvolvimento das plantas, como umidade do solo, temperatura e luminosidade.
+
+Por meio da tecnologia IoT (Internet das Coisas), sensores conectados a uma placa Arduino realizam medições constantes, que são transmitidas para a nuvem via Wi-Fi. O app organiza essas informações de forma acessível e visual, ajudando você a tomar decisões mais conscientes sobre irrigação e cuidados com a horta.
+
+Com o SoilSense, você tem:
+
+Monitoramento ambiental em tempo real direto no celular;
+
+Redução de até 30% no uso de água, graças ao controle inteligente da irrigação;
+
+Informações organizadas em gráficos e alertas personalizáveis;
+
+Um aliado para práticas agrícolas mais eficientes, sustentáveis e acessíveis.
+
+Nosso objetivo é democratizar a agricultura de precisão, oferecendo uma ferramenta de baixo custo, fácil uso e alto impacto social, ambiental e econômico. O SoilSense está alinhado aos Objetivos de Desenvolvimento Sustentável (ODS 2 e ODS 11), incentivando a autonomia alimentar, a sustentabilidade urbana e a valorização da agricultura em pequena escala.
           </Text>
         </View>
       </View>

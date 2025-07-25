@@ -8,6 +8,7 @@ import TelaGraficos from './src/components/TelaGraficos';
 import TelaDispositivo from './src/components/TelaDispositivo';
 import TelaPerfil from './src/components/TelaPerfil';
 import TelaInfo from './src/components/TelaInfo';
+import TelaConectar from './src/components/TelaConectar';
 
 const Stack = createStackNavigator();
 
@@ -23,6 +24,7 @@ export default function App() {
         <Stack.Screen name="TelaDispositivo" component={TelaDispositivo} options={{ headerShown: false }} />
         <Stack.Screen name="TelaPerfil" component={TelaPerfil} options={{ headerShown: false }} />
         <Stack.Screen name="TelaInfo" component={TelaInfo} options={{ headerShown: false }} />
+        <Stack.Screen name="TelaConectar" component={TelaConectar} options={{ headerShown: false }} /> 
       </Stack.Navigator>
     </NavigationContainer>
   );

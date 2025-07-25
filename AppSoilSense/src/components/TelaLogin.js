@@ -1,32 +1,36 @@
+
 import { useState } from 'react';
-import { View, Dimensions,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  Alert,
-  TextInput,
-  Image,
-} from 'react-native';
+import { View, Dimensions, StyleSheet, Text, TouchableOpacity, Alert, TextInput, Image } from 'react-native';
 
 const windowWidth = Dimensions.get('window').width;
 
 export default function TelaLogin({ navigation }) {
-    const [email, setEmail] = useState('');
-    const [senha, setSenha] = useState('');
+  const [email, setEmail] = useState('');
+  const [senha, setSenha] = useState('');
 
-    const handleLogin = () => {
-        if (!email || !senha) {
-            Alert.alert('Erro', 'Por favor, preencha todos os campos.');
-            return;
-        }
-        // Aqui você pode adicionar a lógica para enviar os dados de cadastro para o servidor
-        Alert.alert('Sucesso', 'Login efetuado com sucesso!');
-        navigation.navigate('TelaPrincipal'); // Redireciona para a tela de login após o cadastro
-    };
+  const handleLogin = async () => {
+    if (!email || !senha) {
+      Alert.alert('Preencha todos os campos!');
+      return;
+    }
+
+    try {
+      const res = await fetch(`http://localhost:4000/usuarios?email=${email}&senha=${senha}`);
+      const data = await res.json();
+
+      if (data.length > 0) {
+        Alert.alert('Login realizado!');
+        navigation.navigate('TelaPrincipal', { usuario: data[0] });
+      } else {
+        Alert.alert('Email ou senha inválidos.');
+      }
+    } catch (error) {
+      Alert.alert('Erro de conexão', error.message);
+    }
+  };
 
   return (
     <View style={styles.container}>
-      
       <Image
         source={require('../assets/logo-soilsense.png')}
         style={styles.logo}
@@ -37,26 +41,25 @@ export default function TelaLogin({ navigation }) {
         <Text style={styles.titulo}>Login</Text>
 
         <TextInput
-            style={styles.input}
-            placeholder="Email"
-            value={email}
-            onChangeText={setEmail}
+          style={styles.input}
+          placeholder="Email"
+          value={email}
+          onChangeText={setEmail}
         />
         <TextInput
-            style={styles.input}
-            placeholder="Senha"
-            secureTextEntry
-            value={senha}
-            onChangeText={setSenha}
+          style={styles.input}
+          placeholder="Senha"
+          secureTextEntry
+          value={senha}
+          onChangeText={setSenha}
         />
 
-        <TouchableOpacity
-          style={styles.botao}
-          onPress={() => handleLogin()}>
-          <Text style={styles.textoBotao} onPress={() => navigation.navigate('TelaPrincipal')}>ENTRAR</Text>
+        <TouchableOpacity style={styles.botao} onPress={handleLogin}>
+          <Text style={styles.textoBotao}>ENTRAR</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.botao} onPress={() => navigation.navigate('TelaInicial')}>
-            <Text style={styles.textoBotao}>VOLTAR</Text>
+
+        <TouchableOpacity style={styles.botao} onPress={() => navigation.navigate('TelaCadastro')}>
+          <Text style={styles.textoBotao}>CADASTRAR</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -66,7 +69,7 @@ export default function TelaLogin({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#6EE37B', // Verde claro
+    backgroundColor: '#6EE37B',
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -75,16 +78,15 @@ const styles = StyleSheet.create({
     top: 40,
     width: 100,
     height: 100,
-    marginTop: 20,
   },
   card: {
-    backgroundColor: '#4BB79E', // verde-azulado
+    backgroundColor: '#4BB79E',
     padding: 30,
     borderRadius: 20,
     alignItems: 'center',
     elevation: 8,
     width: windowWidth * 0.8,
-    marginTop: 100,
+    marginTop: 150,
   },
   titulo: {
     fontSize: 24,
@@ -109,14 +111,13 @@ const styles = StyleSheet.create({
   },
   input: {
     height: 40,
-    borderColor: 'gray',
     borderWidth: 1,
     width: '100%',
     marginBottom: 10,
     paddingHorizontal: 10,
     borderRadius: 5,
     borderColor: '000000',
-    backgroundColor: '#fff', // Fundo branco para os inputs
-    color: '#000', // Texto preto para os inputs
+    backgroundColor: '#fff',
+    color: '#000',
   },
 });

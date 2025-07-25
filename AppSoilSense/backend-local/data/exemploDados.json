@@ -1,0 +1,16 @@
+[
+  {
+    "umidade": 63,
+    "temperatura": 27,
+    "luminosidade": 820,
+    "planta": "Alface Lisa",
+    "timestamp": "2025-07-21T11:00:00.000Z"
+  },
+  {
+    "umidade": 48,
+    "temperatura": 25,
+    "luminosidade": 610,
+    "planta": "Cenoura",
+    "timestamp": "2025-07-21T10:45:00.000Z"
+  }
+]
