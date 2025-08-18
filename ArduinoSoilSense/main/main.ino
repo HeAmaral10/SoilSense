@@ -15,13 +15,14 @@ DallasTemperature sensor(&oneWire);          // Objeto do sensor DS18B20 usando 
 DeviceAddress endereco_temp;                 // Armazena o endereço do sensor de temperatura
 
 // Variáveis para armazenar valores brutos e processados dos sensores
-int valorUmidade, valorLuz, valorTemperatura, umidade, luz;
+int umidade, valorLuz, valorTemperatura, luz;
 float temperatura;
-
+int leitura_umidade = 0;
 void setup()
 {
   Serial.begin(9600);        // Inicializa a comunicação serial a 9600 bps
   sensor.begin();            // Inicia o sensor de temperatura DS18B20
+  pinMode(SENSOR_UMIDADE, INPUT);
 }
 
 void loop()
@@ -38,18 +39,19 @@ void loop()
   }
 
   // Leitura dos sensores analógicos
-  valorUmidade = analogRead(SENSOR_UMIDADE);           // Leitura do sensor de umidade (0 a 1023)
+  leitura_umidade = analogRead(SENSOR_UMIDADE);           // Leitura do sensor de umidade (0 a 1023)
   valorLuz = analogRead(SENSOR_LDR);                   // Leitura do sensor de luminosidade (LDR)
-  valorTemperatura = analogRead(SENSOR_TEMPERATURA);   // Leitura do sensor de temperatura analógico (LM35)
+  //valorTemperatura = analogRead(SENSOR_TEMPERATURA);   // Leitura do sensor de temperatura analógico (LM35)
 
   // Conversão da umidade bruta para porcentagem (calibrar conforme seu sensor)
-  umidade = map(valorUmidade, 0, 876, 0, 100);
+  //umidade = leitura_umidade*(5.0/1023);
+  umidade = map(leitura_umidade, 0, 876, 0, 100);
 
   // Conversão da leitura analógica do LM35 para temperatura em Celsius
-  temperatura = (valorTemperatura * 5.0 * 100.0) / 1024.0;
+  //temperatura = (valorTemperatura * 5.0 * 100.0) / 1024.0;
 
   // Conversão da leitura do LDR para uma escala de 100 (claro) a 0 (escuro)
-  luz = map(valorLuz, 54, 974, 100, 0);
+  luz = map(valorLuz, 54, 974, 0, 100);
 
   // Impressão dos valores no monitor serial
   Serial.print("Umidade: ");
@@ -57,7 +59,7 @@ void loop()
   Serial.print("% | Lux: ");
   Serial.print(luz);
   Serial.print(" lx | Temperatura (LM35): ");
-  Serial.print(temperatura);
+  //Serial.print(temperatura);
   Serial.print(" ");
   Serial.write(176);  // Caractere ° (graus Celsius)
   Serial.println("C");
