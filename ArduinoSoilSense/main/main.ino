@@ -1,68 +1,51 @@
-// Código SoilSense - Monitoramento de umidade, luminosidade e temperatura do solo
+// SoilSense
 
-#include <Arduino.h>               // Biblioteca principal do Arduino
-#include <DallasTemperature.h>     // Biblioteca para leitura do sensor DS18B20 (temperatura digital)
-#include <OneWire.h>               // Protocolo de comunicação 1-Wire usado pelo DS18B20
+#include <Arduino.h>
+#include <DallasTemperature.h>
+#include <OneWire.h>
 
-// Definições dos pinos analógicos onde os sensores estão conectados
-const int SENSOR_UMIDADE = 0;        // Sensor de umidade do solo no pino A0
-const int SENSOR_LDR = 1;            // Sensor de luminosidade (LDR) no pino A1
-const int SENSOR_TEMPERATURA = 2;    // Sensor de temperatura analógico ou DS18B20 no pino A2
-
-// Inicialização da comunicação 1-Wire e do sensor DS18B20
-OneWire oneWire(SENSOR_TEMPERATURA);         // Objeto para o protocolo 1-Wire
-DallasTemperature sensor(&oneWire);          // Objeto do sensor DS18B20 usando OneWire
-DeviceAddress endereco_temp;                 // Armazena o endereço do sensor de temperatura
-
-// Variáveis para armazenar valores brutos e processados dos sensores
-int umidade, valorLuz, valorTemperatura, luz;
+int sensor_umidade = 0;
+int sensor_ldr = 1;
+int sensor_temperatura = 2;
+OneWire oneWire(sensor_temperatura);
+DallasTemperature sensor_t(&oneWire);
+DeviceAddress endereco_temp;
+int valorUmidade, valorLuz, valorTemperatura, umidade, luz;
 float temperatura;
-int leitura_umidade = 0;
+
 void setup()
 {
-  Serial.begin(9600);        // Inicializa a comunicação serial a 9600 bps
-  sensor.begin();            // Inicia o sensor de temperatura DS18B20
-  pinMode(SENSOR_UMIDADE, INPUT);
+  Serial.begin(9600);
+  sensor_t.begin();
 }
 
 void loop()
 {
-  sensor.requestTemperatures();   // Solicita a leitura da temperatura ao sensor DS18B20
-
-  // Verifica se o sensor DS18B20 está conectado corretamente
-  if(!sensor.getAddress(endereco_temp, 0)) {
-    Serial.println("Sensor não conectado");  // Mensagem de erro se o sensor não for encontrado
+  /*sensor_t.requestTemperatures();
+  if(!sensor_t.getAddress(endereco_temp, 0)) {
+    Serial.println("Sensor não conectado");
   } else {
-    Serial.print("Temperatura (DS18B20): ");
-    Serial.print(sensor.getTempC(endereco_temp));  // Lê e exibe a temperatura em Celsius
-    Serial.println(" °C");
-  }
+    Serial.print("Temperatura: ");
+    Serial.print(sensor_t.getTempC(endereco_temp, 1));
+  }*/
 
-  // Leitura dos sensores analógicos
-  leitura_umidade = analogRead(SENSOR_UMIDADE);           // Leitura do sensor de umidade (0 a 1023)
-  valorLuz = analogRead(SENSOR_LDR);                   // Leitura do sensor de luminosidade (LDR)
-  //valorTemperatura = analogRead(SENSOR_TEMPERATURA);   // Leitura do sensor de temperatura analógico (LM35)
-
-  // Conversão da umidade bruta para porcentagem (calibrar conforme seu sensor)
-  //umidade = leitura_umidade*(5.0/1023);
-  umidade = map(leitura_umidade, 0, 876, 0, 100);
-
-  // Conversão da leitura analógica do LM35 para temperatura em Celsius
-  //temperatura = (valorTemperatura * 5.0 * 100.0) / 1024.0;
-
-  // Conversão da leitura do LDR para uma escala de 100 (claro) a 0 (escuro)
-  luz = map(valorLuz, 54, 974, 0, 100);
-
-  // Impressão dos valores no monitor serial
+  valorUmidade = analogRead(SENSOR_UMIDADE);
+  valorLuz = analogRead(SENSOR_LDR);
+  valorTemperatura = analogRead(sensor_temperatura);
+  umidade = map(valorUmidade, 0, 876, 0, 100);
+  temperatura = (valorTemperatura * 5.0 * 100.0) / 1024.0;
+  luz = map(valorLuz,54, 974, 100, 0);
+  
   Serial.print("Umidade: ");
   Serial.print(umidade);
   Serial.print("% | Lux: ");
   Serial.print(luz);
-  Serial.print(" lx | Temperatura (LM35): ");
-  //Serial.print(temperatura);
+  Serial.print(" lx | Temperatura: ");
+  Serial.print(temperatura);
   Serial.print(" ");
-  Serial.write(176);  // Caractere ° (graus Celsius)
+  Serial.write(176);
   Serial.println("C");
 
-  delay(1000);  // Aguarda 1 segundo antes da próxima leitura
+  delay(1000);
+
 }
