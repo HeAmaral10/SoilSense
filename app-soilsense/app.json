@@ -1,0 +1,29 @@
+{
+  "expo": {
+    "name": "app-soilsense",
+    "slug": "app-soilsense",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "splash": {
+      "image": "./assets/logo-soilsense.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#6EDB72"
+    },
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/logo-soilsense.png",
+        "backgroundColor": "#6EDB72"
+      },
+      "edgeToEdgeEnabled": true
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    }
+  }
+}
