@@ -1,14 +1,14 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import TelaInicial from './src/components/TelaInicial';
-import TelaLogin from './src/components/TelaLogin';
-import TelaCadastro from './src/components/TelaCadastro';
-import TelaPrincipal from './src/components/TelaPrincipal';
-import TelaGraficos from './src/components/TelaGraficos';
-import TelaDispositivo from './src/components/TelaDispositivo';
-import TelaPerfil from './src/components/TelaPerfil';
-import TelaInfo from './src/components/TelaInfo';
-import TelaConectar from './src/components/TelaConectar';
+import TelaInicial from './src/screens/TelaInicial';
+import TelaLogin from './src/screens/TelaLogin';
+import TelaCadastro from './src/screens/TelaCadastro';
+import TelaPrincipal from './src/screens/TelaPrincipal';
+import TelaGraficos from './src/screens/TelaGraficos';
+import TelaDispositivo from './src/screens/TelaDispositivo';
+import TelaPerfil from './src/screens/TelaPerfil';
+import TelaInfo from './src/screens/TelaInfo';
+import TelaConectar from './src/screens/TelaConectar';
 
 const Stack = createStackNavigator();
 
