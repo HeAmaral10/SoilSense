@@ -4,8 +4,8 @@
 #include <DallasTemperature.h>
 #include <OneWire.h>
 
-int sensor_umidade = 0;
-int sensor_ldr = 1;
+int sensor_ldr = 0;
+int sensor_umidade = 1;
 int sensor_temperatura = 2;
 OneWire oneWire(sensor_temperatura);
 DallasTemperature sensor_t(&oneWire);
@@ -29,10 +29,10 @@ void loop()
     Serial.print(sensor_t.getTempC(endereco_temp, 1));
   }*/
 
-  valorUmidade = analogRead(SENSOR_UMIDADE);
-  valorLuz = analogRead(SENSOR_LDR);
-  valorTemperatura = analogRead(sensor_temperatura);
-  umidade = map(valorUmidade, 0, 876, 0, 100);
+  valorUmidade = analogRead(sensor_umidade);
+  valorLuz = analogRead(sensor_ldr);
+  sensor_t.requestTemperatures();
+  umidade = map(valorUmidade, 0, 1023, 100, 0);
   temperatura = (valorTemperatura * 5.0 * 100.0) / 1024.0;
   luz = map(valorLuz,54, 974, 100, 0);
   
@@ -41,7 +41,7 @@ void loop()
   Serial.print("% | Lux: ");
   Serial.print(luz);
   Serial.print(" lx | Temperatura: ");
-  Serial.print(temperatura);
+  Serial.print(sensor_t.getTempC(endereco_temp, 1));
   Serial.print(" ");
   Serial.write(176);
   Serial.println("C");
