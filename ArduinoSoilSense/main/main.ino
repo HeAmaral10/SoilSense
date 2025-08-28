@@ -10,7 +10,7 @@ int sensor_temperatura = 2;
 OneWire oneWire(sensor_temperatura);
 DallasTemperature sensor_t(&oneWire);
 DeviceAddress endereco_temp;
-int valorUmidade, valorLuz, vumidade, luz;
+int valorUmidade, valorLuz, umidade, luz;
 
 void setup()
 {
@@ -25,7 +25,7 @@ void loop()
   valorLuz = analogRead(sensor_ldr);
   sensor_t.requestTemperatures();
   umidade = map(valorUmidade, 0, 1023, 100, 0);
-  luz = map(valorLuz,54, 974, 100, 0);
+  luz = map(valorLuz,54, 974, 0, 100);
   
   Serial.print("Umidade: ");
   Serial.print(umidade);
