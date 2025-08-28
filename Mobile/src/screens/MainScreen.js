@@ -7,16 +7,7 @@ export default function MainScreen({ navigation, route }) {
 
   return (
     <View style={styles.container}>
-      {/* Ícone de planta central no fundo */}
-      <View style={styles.iconBackgroundContainer}>
-        <Image
-          source={require('../assets/logo-soilsense.png')}
-          style={styles.icon}
-          resizeMode="contain"
-        />
-      </View>
 
-      {/* Botões centrais */}
       <View style={styles.buttonsContainer}>
         <TouchableOpacity
           style={styles.botao}
@@ -34,7 +25,7 @@ export default function MainScreen({ navigation, route }) {
 
         <TouchableOpacity
           style={styles.botao}
-          onPress={() => navigation.navigate('GraphicScreen', { usuarioId })}
+          onPress={() => navigation.navigate('DataScreen', { usuarioId })}
         >
           <Text style={styles.textoBotao}>Dados</Text>
         </TouchableOpacity>

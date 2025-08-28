@@ -1,0 +1,102 @@
+{
+  "plantas": [
+    {
+      "id": "1",
+      "nome": "Alface Crespa",
+      "umidadeRecomendada": 60,
+      "temperaturaMin": 15,
+      "temperaturaMax": 25,
+      "luminosidadeRecomendada": 85
+    },
+    {
+      "id": "2",
+      "nome": "Cenoura",
+      "umidadeRecomendada": 70,
+      "temperaturaMin": 16,
+      "temperaturaMax": 22,
+      "luminosidadeRecomendada": 90
+    },
+    {
+      "id": "3",
+      "nome": "Couve",
+      "umidadeRecomendada": 65,
+      "temperaturaMin": 18,
+      "temperaturaMax": 28,
+      "luminosidadeRecomendada": 75
+    },
+    {
+      "id": "4",
+      "nome": "Tomate Cereja",
+      "umidadeRecomendada": 75,
+      "temperaturaMin": 20,
+      "temperaturaMax": 30,
+      "luminosidadeRecomendada": 95
+    },
+    {
+      "id": "5",
+      "nome": "Manjericão",
+      "umidadeRecomendada": 50,
+      "temperaturaMin": 18,
+      "temperaturaMax": 30,
+      "luminosidadeRecomendada": 80
+    }
+  ],
+  "usuarios": [
+    {
+      "id": "3",
+      "nome": "João Silva",
+      "email": "joao@example.com",
+      "senha": "123456"
+    },
+    {
+      "id": "2",
+      "nome": "Maria Souza",
+      "email": "maria@example.com",
+      "senha": "abcdef"
+    },
+    {
+      "id": "1",
+      "nome": "Henrique Amaral",
+      "email": "hefac@gmail.com",
+      "senha": "123456"
+    }
+  ],
+  "dispositivos": [
+    {
+      "id": "1",
+      "nome": "Sensor 1",
+      "planta": "Alface Crespa",
+      "umidade": 55,
+      "temperatura": 24,
+      "luminosidade": 75,
+      "bateria": 85,
+      "data": "21/07/2025",
+      "localizacao": "Horta",
+      "usuarioId": 1
+    },
+    {
+      "id": "2",
+      "nome": "Sensor 2",
+      "planta": "Tomate Cereja",
+      "umidade": 48,
+      "temperatura": 26,
+      "luminosidade": 60,
+      "bateria": 90,
+      "data": "21/07/2025",
+      "localizacao": "Quintal",
+      "usuarioId": 2
+    },
+    {
+      "id": "2185",
+      "nome": "Escola",
+      "planta": "Alface Crespa",
+      "umidade": 0,
+      "temperatura": 0,
+      "luminosidade": 0,
+      "bateria": 0,
+      "data": "25/07/2025",
+      "localizacao": "Escola",
+      "usuarioId": 1
+    }
+  ]
+}

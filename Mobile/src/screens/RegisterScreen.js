@@ -18,7 +18,7 @@ export default function RegisterScreen({ navigation }) {
   const [nome, setNome] = useState('');
   const [ultimoNome, setUltimoNome] = useState('');
 
-  const handleCadastro = async () => {
+  const handleRegister = async () => {
     if (!nome.trim() || !ultimoNome.trim()) {
       Alert.alert('Digite nome e sobrenome.');
       return;
@@ -38,6 +38,27 @@ export default function RegisterScreen({ navigation }) {
     if (senha !== confirmarSenha) {
       Alert.alert('As senhas não coincidem.');
       return;
+    }
+
+    try {
+      const res = await fetch('http://192.168.0.16:3000/usuarios', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          nome: `${nome} ${ultimoNome}`,
+          email,
+          senha
+        })
+    });
+
+      if (res.ok) {
+        Alert.alert('Cadastro realizado com sucesso!');
+        navigation.navigate('LoginScreen');
+      } else {
+        Alert.alert('Erro ao cadastrar');
+      }
+    } catch (err) {
+      Alert.alert('Erro de conexão', err.message);
     }
 
   };
@@ -86,7 +107,7 @@ export default function RegisterScreen({ navigation }) {
           onChangeText={setConfirmarSenha}
         />
 
-        <TouchableOpacity style={styles.botao} onPress={handleCadastro}>
+        <TouchableOpacity style={styles.botao} onPress={handleRegister}>
           <Text style={styles.textoBotao}>CRIAR CONTA</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.botao} onPress={() => navigation.navigate('InitialScreen')}>

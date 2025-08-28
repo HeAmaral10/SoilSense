@@ -4,7 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import ConectScreen from './src/screens/ConectScreen';
 import DeviceScreen from './src/screens/DeviceScreen';
-import GraphicScreen from './src/screens/GraphicScreen';
+import DataScreen from './src/screens/DataScreen';
 import ProfileScreen from './src/screens/ProfileScreen';
 import InitialScreen from './src/screens/InitialScreen';
 import SplashScreen from './src/screens/SplashScreen';
@@ -21,24 +21,24 @@ function DrawerRoutes() {
       initialRouteName="MainScreen"
       screenOptions={{
         drawerStyle: {
-          backgroundColor: '#238879ff', // cor de fundo do drawer
+          backgroundColor: '#238879ff',
           width: 250,
         },
-        drawerActiveTintColor: '#003d6eff', // cor do texto do item ativo
-        drawerInactiveTintColor: '#333', // cor do texto do item inativo
+        drawerActiveTintColor: '#003d6eff',
+        drawerInactiveTintColor: '#333', 
         drawerLabelStyle: {
           fontSize: 16,
           fontWeight: 'bold',
         },
         headerStyle: {
-          backgroundColor: '#52AC95', // cor de fundo do header
+          backgroundColor: '#52AC95',
         },
       }}
     >
-      <Drawer.Screen name="MainScreen" component={MainScreen} options={{ title: 'Tela Principal' }} />
+      <Drawer.Screen name="MainScreen" component={MainScreen} options={{ title: 'Tela Inicial' }} />
       <Drawer.Screen name="ConectScreen" component={ConectScreen} options={{ title: 'Conectar Dispositivo' }} />
       <Drawer.Screen name="DeviceScreen" component={DeviceScreen} options={{ title: 'Gerenciar Dispositivos' }} />
-      <Drawer.Screen name="GraphicScreen" component={GraphicScreen} options={{ title: 'Gráficos' }} />
+      <Drawer.Screen name="DataScreen" component={DataScreen} options={{ title: 'Dados' }} />
       <Drawer.Screen name="ProfileScreen" component={ProfileScreen} options={{ title: 'Perfil' }} />
     </Drawer.Navigator>
   );

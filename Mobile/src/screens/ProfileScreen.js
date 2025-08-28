@@ -1,15 +1,27 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, Dimensions } from 'react-native';
+import api from '../services/api';
+
+const windowWidth = Dimensions.get('window').width;
 
 export default function ProfileScreen({ navigation }) {
   const [usuario, setUsuario] = useState(null);
   const [carregando, setCarregando] = useState(true);
 
+  useEffect(() => {
+    api.get('/usuarios/1')
+      .then(response => {
+        setUsuario(response.data);
+        setCarregando(false);
+      })
+      .catch(error => {
+        console.error('Erro ao buscar perfil:', error);
+        setCarregando(false);
+      });
+  }, []);
+
   return (
     <View style={styles.container}>
-      <View style={styles.overlay}>
-        <Image source={require('../assets/logo-soilsense.png')} style={styles.logoOverlay} />
-      </View>
 
       {carregando ? (
         <Text style={styles.carregando}>Carregando perfil...</Text>
@@ -29,8 +41,6 @@ export default function ProfileScreen({ navigation }) {
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: '#5EC36E', justifyContent: 'center', alignItems: 'center' },
-  overlay: { position: 'absolute', top: '40%', left: '50%', transform: [{ translateX: -100 }], opacity: 0.03 },
-  logoOverlay: { width: 200, height: 200 },
   card: { backgroundColor: '#fff', padding: 30, borderRadius: 20, width: '80%', elevation: 5 },
   titulo: { fontSize: 20, fontWeight: 'bold', marginBottom: 20, color: '#0A2E36', textAlign: 'center' },
   item: { fontSize: 16, color: '#0A2E36', marginBottom: 10 },

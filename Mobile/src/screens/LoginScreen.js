@@ -1,5 +1,6 @@
 
 import { useState } from 'react';
+import api from '../services/api';
 import { View, Dimensions, StyleSheet, Text, TouchableOpacity, Alert, TextInput, Image } from 'react-native';
 
 const windowWidth = Dimensions.get('window').width;
@@ -7,6 +8,29 @@ const windowWidth = Dimensions.get('window').width;
 export default function LoginScreen({ navigation }) {
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
+
+  const handleLogin = async () => {
+    if (!email || !senha) {
+      Alert.alert('Preencha todos os campos!');
+      return;
+    }
+
+    try {
+      const res = await api.get(`/usuarios`, {
+        params: { email, senha }
+      });
+      const data = res.data;
+
+      if (data.length > 0) {
+        Alert.alert('Login realizado!');
+        navigation.navigate('DrawerRoutes', { usuario: data[0] });
+      } else {
+        Alert.alert('Email ou senha inválidos.');
+      }
+    } catch (error) {
+      Alert.alert('Erro de conexão', error.message);
+    }
+  };
 
   return (
     <View style={styles.container}>
@@ -33,7 +57,7 @@ export default function LoginScreen({ navigation }) {
           onChangeText={setSenha}
         />
 
-        <TouchableOpacity style={styles.botao} onPress={() => navigation.navigate('DrawerRoutes')}>
+        <TouchableOpacity style={styles.botao} onPress={handleLogin}>
           <Text style={styles.textoBotao}>ENTRAR</Text>
         </TouchableOpacity>
 

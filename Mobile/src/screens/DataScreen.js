@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, Image, StyleSheet, TouchableOpacity, ActivityIndicator, Button } from 'react-native';
-
+import api from '../services/api';
 
 export default function GraphicScreen({ navigation }) {
   const [dispositivos, setDispositivos] = useState([]);
@@ -69,22 +69,17 @@ export default function GraphicScreen({ navigation }) {
   return (
     <View style={styles.container}>
       <View style={styles.contentContainer}>
-        <Image
-          source={require('../assets/logo-soilsense.png')}
-          style={styles.backgroundLogo}
-          resizeMode="contain"
-        />
 
         {loading ? (
           <ActivityIndicator size="large" color="#0A2E36" />
         ) : dispositivoAtual && plantaRecomendada ? (
-          <>
-            <Text style={styles.title}>📊 {dispositivoAtual.nome}</Text>
+          <View style={styles.cardBox}>
+            <Text style={styles.title}>{dispositivoAtual.nome}</Text>
             <Text style={styles.label}>🌿 Planta: {dispositivoAtual.planta}</Text>
 
             <Text style={styles.label}>💧 Umidade:</Text>
             <Text style={[styles.value,
-              { color: corPorComparacao(dispositivoAtual.umidade, plantaRecomendada.umidadeRecomendada, 'min') }]}>
+              { color: corPorComparacao(dispositivoAtual.umidade, plantaRecomendada.umidadeRecomendada, 'min') }]}> 
               {dispositivoAtual.umidade}%
             </Text>
             <Text style={styles.note}>
@@ -99,7 +94,7 @@ export default function GraphicScreen({ navigation }) {
                   [plantaRecomendada.temperaturaMin, plantaRecomendada.temperaturaMax],
                   'entre'
                 )
-              }]}>
+              }]}> 
               {dispositivoAtual.temperatura}°C
             </Text>
             <Text style={styles.note}>
@@ -110,7 +105,7 @@ export default function GraphicScreen({ navigation }) {
             <Text style={[styles.value,
               {
                 color: corPorComparacao(dispositivoAtual.luminosidade, plantaRecomendada.luminosidadeRecomendada, 'min')
-              }]}>
+              }]}> 
               {dispositivoAtual.luminosidade}/100
             </Text>
             <Text style={styles.note}>
@@ -125,7 +120,7 @@ export default function GraphicScreen({ navigation }) {
                 <Text style={styles.navText}>Próximo ➡</Text>
               </TouchableOpacity>
             </View>
-          </>
+          </View>
         ) : (
           <Text style={styles.note}>Nenhum dispositivo encontrado.</Text>
         )}
@@ -142,12 +137,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 24,
     position: 'relative',
-  },
-  backgroundLogo: {
-    position: 'absolute',
-    width: 200,
-    height: 200,
-    opacity: 0.1,
   },
   title: {
     fontSize: 20,
@@ -193,4 +182,17 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
   },
   menuIcon: { width: 40, height: 40 },
+  cardBox: {
+    backgroundColor: '#fff',
+    borderRadius: 16,
+    padding: 24,
+    marginVertical: 16,
+    elevation: 6,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    width: '100%',
+    alignItems: 'center',
+  },
 });

@@ -13,7 +13,7 @@ export default function ConectScreen({ navigation }) {
   useEffect(() => {
     async function carregarPlantas() {
       try {
-        const res = await fetch('http://localhost:4000/plantas');
+        const res = await fetch('http://192.168.0.16:3000/plantas');
         const data = await res.json();
         setPlantas(data);
       } catch (error) {
@@ -23,14 +23,14 @@ export default function ConectScreen({ navigation }) {
     carregarPlantas();
   }, []);
 
-  const handleSalvar = async () => {
+  const handleSave = async () => {
     if (!nomeDispositivo || !plantaSelecionada) {
       Alert.alert('Preencha todos os campos!');
       return;
     }
 
     try {
-      const res = await fetch('http://localhost:4000/dispositivos', {
+      const res = await fetch('http://192.168.0.16:3000/dispositivos', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -47,7 +47,7 @@ export default function ConectScreen({ navigation }) {
 
       if (res.ok) {
         Alert.alert('Dispositivo conectado com sucesso!');
-        navigation.navigate('TelaDispositivo');
+        navigation.navigate('DeviceScreen');
       } else {
         Alert.alert('Erro ao salvar dispositivo');
       }
@@ -58,11 +58,6 @@ export default function ConectScreen({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <Image
-        source={require('../assets/logo-soilsense.png')}
-        style={styles.logo}
-        resizeMode="contain"
-      />
 
       <View style={styles.card}>
         <Text style={styles.titulo}>Conectar dispositivo</Text>
@@ -88,7 +83,7 @@ export default function ConectScreen({ navigation }) {
           </Picker>
         </View>
 
-        <TouchableOpacity style={styles.botao} onPress={handleSalvar}>
+        <TouchableOpacity style={styles.botao} onPress={handleSave}>
           <Text style={styles.textoBotao}>SALVAR</Text>
         </TouchableOpacity>
 
@@ -104,12 +99,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  logo: {
-    position: 'absolute',
-    top: 40,
-    width: 100,
-    height: 100,
-  },
   card: {
     backgroundColor: '#4BB79E',
     padding: 30,
@@ -117,7 +106,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     elevation: 8,
     width: windowWidth * 0.85,
-    marginTop: 150,
   },
   titulo: {
     fontSize: 22,
@@ -152,7 +140,7 @@ const styles = StyleSheet.create({
   },
   picker: {
     width: '100%',
-    height: 40,
+    height: 50,
     color: '#000',
   },
   botao: {
