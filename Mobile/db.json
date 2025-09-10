@@ -63,18 +63,6 @@
   ],
   "dispositivos": [
     {
-      "id": "1",
-      "nome": "Sensor 1",
-      "planta": "Alface Crespa",
-      "umidade": 55,
-      "temperatura": 24,
-      "luminosidade": 75,
-      "bateria": 85,
-      "data": "21/07/2025",
-      "localizacao": "Horta",
-      "usuarioId": 1
-    },
-    {
       "id": "2",
       "nome": "Sensor 2",
       "planta": "Tomate Cereja",

@@ -11,6 +11,7 @@ import SplashScreen from './src/screens/SplashScreen';
 import LoginScreen from './src/screens/LoginScreen';
 import RegisterScreen from './src/screens/RegisterScreen';
 import MainScreen from './src/screens/MainScreen';
+import PlantScreen from './src/screens/PlantScreen';
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -40,6 +41,7 @@ function DrawerRoutes() {
       <Drawer.Screen name="DeviceScreen" component={DeviceScreen} options={{ title: 'Gerenciar Dispositivos' }} />
       <Drawer.Screen name="DataScreen" component={DataScreen} options={{ title: 'Dados' }} />
       <Drawer.Screen name="ProfileScreen" component={ProfileScreen} options={{ title: 'Perfil' }} />
+      <Drawer.Screen name="PlantScreen" component={PlantScreen} options={{ title: 'Plantas' }} />
     </Drawer.Navigator>
   );
 }
