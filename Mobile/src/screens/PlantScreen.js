@@ -12,7 +12,7 @@ export default function PlantScreen({ navigation }) {
   async function fetchPlantas() {
     try {
       const res = await api.get('/plantas');
-      setplantas(res.data);
+      setPlantas(res.data);
     } catch (error) {
       Alert.alert('Erro ao buscar plantas', error.message);
     }
