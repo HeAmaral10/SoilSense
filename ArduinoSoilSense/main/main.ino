@@ -1,49 +1,62 @@
-// SoilSense
+// SoilSense - ESP32
 
 #include <Arduino.h>
-#include <DallasTemperature.h>
 #include <OneWire.h>
+#include <DallasTemperature.h>
 
-int sensor_ldr = 0;
-int sensor_umidade = 1;
-int sensor_temperatura = 12;
+// Pinos
+const int sensor_ldr = 34;           // Pino analógico
+const int sensor_umidade = 32;       // Pino analógico
+const int sensor_temperatura = 4;    // Pino digital para DS18B20
+
+// OneWire e sensor de temperatura
 OneWire oneWire(sensor_temperatura);
 DallasTemperature sensor_t(&oneWire);
 DeviceAddress endereco_temp;
-int valorUmidade, valorLuz, luz;
-int umidade = 0;
 
-void setup()
-{
-  Serial.begin(9600);
-  sensor_t.begin(); ;
+int valorUmidade, valorLuz, luz, umidade;
+
+void setup() {
+  Serial.begin(115200);  // ESP32 geralmente usa 115200 como padrão
+  sensor_t.begin();
+
+  analogReadResolution(12); // ESP32 retorna 0~4095 por padrão
+  analogSetAttenuation(ADC_11db); // Opcional, ajusta a faixa de leitura
+
   pinMode(sensor_umidade, INPUT);
+  pinMode(sensor_ldr, INPUT);
+
+  // Verificar se o sensor de temperatura está conectado
+  if (!sensor_t.getAddress(endereco_temp, 0)) {
+    Serial.println("Sensor de temperatura não encontrado.");
+  }
 }
 
-void loop()
-{
-  
-  umidade = analogRead(sensor_umidade);
+void loop() {
+  // Leitura dos sensores
+  valorUmidade = analogRead(sensor_umidade);
   valorLuz = analogRead(sensor_ldr);
   sensor_t.requestTemperatures();
-  umidade = map(umidade, 764, 884, 100, 0);
-  luz = map(valorLuz,54, 974, 0, 100);
-  
+
+  // Mapeamento das leituras
+  umidade = map(valorUmidade, 764, 884, 100, 0); // Ajuste conforme seu sensor
+
+  // Exibição
   Serial.print("Umidade: ");
   Serial.print(umidade);
   Serial.print("% | Lux: ");
-  Serial.print(luz);
-  Serial.print(" lx | ");
-  if(!sensor_t.getAddress(endereco_temp, 0)) {
-    Serial.println("Sensor não conectado");
+  Serial.print(valorLuz);
+  Serial.print(" | ");
+
+  if (!sensor_t.getAddress(endereco_temp, 0)) {
+    Serial.println("Sensor de temperatura não conectado.");
   } else {
     Serial.print("Temperatura: ");
-    Serial.print(sensor_t.getTempC(endereco_temp, 1));
+    Serial.print(sensor_t.getTempC(endereco_temp));
+    Serial.print(" ");
+    Serial.write(176); // Símbolo de grau (°)
+    Serial.println("C");
   }
-  Serial.print(" ");
-  Serial.write(176);
-  Serial.println("C");
 
-  delay(1000);
-
+  delay(1000); // Espera 1 segundo
 }
