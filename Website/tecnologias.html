@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tecnologias - SoilSense</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#10b981',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .tech-bg {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('http://static.photos/technology/1200x630/46');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between">
+                <div class="flex space-x-7">
+                    <a href="index.html" class="flex items-center py-4 px-2">
+                        <!-- Logo atualizada para imagem PNG -->
+                        <img src="logo.png" alt="SoilSense Logo" class="h-8 w-8 mr-2">
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-1">
+                    <a href="index.html" class="py-4 px-2 text-primary font-semibold border-b-4 border-primary">Home</a>
+                    <a href="sobre.html" class="py-4 px-2 text-gray-500 font-semibold hover:text-primary transition duration-300">Sobre</a>
+                    <a href="tecnologias.html" class="py-4 px-2 text-gray-500 font-semibold hover:text-primary transition duration-300">Tecnologias</a>
+                    <a href="blog.html" class="py-4 px-2 text-gray-500 font-semibold hover:text-primary transition duration-300">Blog</a>
+                    <a href="faq.html" class="py-4 px-2 text-gray-500 font-semibold hover:text-primary transition duration-300">FAQ</a>
+                    <a href="contato.html" class="py-4 px-2 text-gray-500 font-semibold hover:text-primary transition duration-300">Contato</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button class="outline-none mobile-menu-button">
+                        <i data-feather="menu" class="w-6 h-6 text-gray-500"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div class="hidden mobile-menu">
+            <ul class="bg-white">
+                <li><a href="index.html" class="block text-sm px-2 py-4 hover:bg-primary hover:text-white transition duration-300">Home</a></li>
+                <li><a href="sobre.html" class="block text-sm px-2 py-4 hover:bg-primary hover:text-white transition duration-300">Sobre</a></li>
+                <li class="active"><a href="tecnologias.html" class="block text-sm px-2 py-4 text-primary font-semibold">Tecnologias</a></li>
+                <li><a href="blog.html" class="block text-sm px-2 py-4 hover:bg-primary hover:text-white transition duration-300">Blog</a></li>
+                <li><a href="faq.html" class="block text-sm px-2 py-4 hover:bg-primary hover:text-white transition duration-300">FAQ</a></li>
+                <li><a href="contato.html" class="block text-sm px-2 py-4 hover:bg-primary hover:text-white transition duration-300">Contato</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="tech-bg text-white py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6">Tecnologias SoilSense</h1>
+            <p class="text-xl">Conheça a tecnologia por trás do monitoramento inteligente do solo</p>
+        </div>
+    </section>
+
+    <!-- Tecnologias Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="mb-12">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-6">Arquitetura do Sistema</h2>
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <div class="grid md:grid-cols-3 gap-6">
+                            <div class="text-center">
+                                <div class="text-primary mb-4">
+                                    <i data-feather="cpu" class="h-12 w-12 mx-auto"></i>
+                                </div>
+                                <h3 class="font-bold text-lg mb-2">Hardware</h3>
+                                <p class="text-gray-600">ESP32 DEVKITV1 com sensores precisos</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-primary mb-4">
+                                    <i data-feather="cloud" class="h-12 w-12 mx-auto"></i>
+                                </div>
+                                <h3 class="font-bold text-lg mb-2">Cloud</h3>
+                                <p class="text-gray-600">Processamento em nuvem dos dados</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-primary mb-4">
+                                    <i data-feather="smartphone" class="h-12 w-12 mx-auto"></i>
+                                </div>
+                                <h3 class="font-bold text-lg mb-2">Interface</h3>
+                                <p class="text-gray-600">Aplicativo web e mobile</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sensores -->
+                <div class="mb-12">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-6">Sensores Utilizados</h2>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="bg-gray-50 p-6 rounded-lg">
+                            <div class="text-primary mb-4">
+                                <i data-feather="droplet" class="h-8 w-8"></i>
+                            </div>
+                            <h3 class="font-bold text-xl mb-2">Sensor de Umidade</h3>
+                            <p class="text-gray-600 mb-2">Sensor capacitivo resistente à corrosão</p>
+                            <ul class="text-gray-600 text-sm list-disc list-inside">
+                                <li>Precisão: ±3%</li>
+                                <li>Resistente à umidade</li>
+                                <li>Longa durabilidade</li>
+                            </ul>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded-lg">
+                            <div class="text-primary mb-4">
+                                <i data-feather="thermometer" class="h-8 w-8"></i>
+                            </div>
+                            <h3 class="font-bold text-xl mb-2">Sensor de Temperatura</h3>
+                            <p class="text-gray-600 mb-2">DS18B20 à prova d'água</p>
+                            <ul class="text-gray-600 text-sm list-disc list-inside">
+                                <li>Precisão: ±0.5°C</li>
+                                <li>Range: -55°C a +125°C</li>
+                                <li>Interface digital</li>
+                            </ul>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded-lg">
+                            <div class="text-primary mb-4">
+                                <i data-feather="sun" class="h-8 w-8"></i>
+                            </div>
+                            <h3 class="font-bold text-xl mb-2">Sensor de Luminosidade</h3>
+                            <p class="text-gray-600 mb-2">LDR 5mm</p>
+                            <ul class="text-gray-600 text-sm list-disc list-inside">
+                                <li>Resposta espectral ampla</li>
+                                <li>Baixo custo</li>
+                                <li>Fácil integração</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ESP32 -->
+                <div class="mb-12">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-6">ESP32 DEVKITV1</h2>
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <div class="flex flex-col md:flex-row items-center">
+                            <div class="md:w-1/3 mb-6 md:mb-0">
+                                <div class="bg-white p-4 rounded-lg shadow-md">
+                                    <i data-feather="cpu" class="h-16 w-16 text-primary mx-auto"></i>
+                                </div>
+                            </div>
+                            <div class="md:w-2/3 md:pl-8">
+                                <h3 class="font-bold text-xl mb-4">Características Técnicas</h3>
+                                <div class="grid md:grid-cols-2 gap-4">
+                                    <div>
+                                        <h4 class="font-semibold text-gray-700">Processador</h4>
+                                        <p class="text-gray-600">Xtensa® Dual-Core 32-bit LX6</p>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-gray-700">Wi-Fi</h4>
+                                        <p class="text-gray-600">802.11 b/g/n</p>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-gray-700">Bluetooth</h4>
+                                        <p class="text-gray-600">BLE 4.2</p>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-gray-700">Memória</h4>
+                                        <p class="text-gray-600">520KB SRAM</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Especificações -->
+                <div class="mb-12">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-6">Especificações Técnicas</h2>
+                    <div class="bg-white border border-gray-200 rounded-lg overflow-hidden">
+                        <table class="min-w-full">
+                            <thead class="bg-gray-50">
+                                <tr>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Parâmetro</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Especificação</th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white divide-y divide-gray-200">
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Tensão de Operação</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">4,5 ~ 9V DC</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Consumo de Energia</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">~240mA (máx)</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Frequência de Amostragem</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">1 minuto</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Alcance Wi-Fi</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Até 100m (aberto)</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Temperatura de Operação</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">-40°C a +85°C</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <i data-feather="sun" class="h-6 w-6 mr-2"></i> SoilSense
+                    </h3>
+                    <p class="text-gray-400">Tecnologia inovadora para agricultura inteligente e sustentável.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition duration-300">Home</a></li>
+                        <li><a href="sobre.html" class="text-gray-400 hover:text-white transition duration-300">Sobre</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Tecnologias</a></li>
+                        <li><a href="blog.html" class="text-gray-400 hover:text-white transition duration-300">Blog</a></li>
+                        <li><a href="faq.html" class="text-gray-400 hover:text-white transition duration-300">FAQ</a></li>
+                        <li><a href="contato.html" class="text-gray-400 hover:text-white transition duration-300">Contato</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Contato</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-center"><i data-feather="mail" class="h-4 w-4 mr-2"></i> contato@soilsense.com</li>
+                        <li class="flex items-center"><i data-feather="phone" class="h-4 w-4 mr-2"></i> (41) 98765-4321</li>
+                        <li class="flex items-center"><i data-feather="map-pin" class="h-4 w-4 mr-2"></i> Curitiba, PR</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Redes Sociais</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300"><i data-feather="facebook" class="h-6 w-6"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300"><i data-feather="instagram" class="h-6 w-6"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300"><i data-feather="twitter" class="h-6 w-6"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300"><i data-feather="youtube" class="h-6 w-6"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 SoilSense. Desenvolvido como projeto de TCC na ETEC Bento Quirino. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const btn = document.querySelector(".mobile-menu-button");
+        const menu = document.querySelector(".mobile-menu");
+
+        btn.addEventListener("click", () => {
+            menu.classList.toggle("hidden");
+        });
+
+        // Initialize feather icons
+        feather.replace();
+    </script>
+</body>
+</html>

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - SoilSense</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#10b981',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .faq-bg {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('http://static.photos/agriculture/1200x630/53');
+            background-size: cover;
+            background-position: center;
+        }
+        .faq-item {
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50">
+    <!-- Navigation -->
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between">
+                <div class="flex space-x-7">
+                    <a href="index.html" class="flex items-center py-4 px-2">
+                        <!-- Logo atualizada para imagem PNG -->
+                        <img src="logo.png" alt="SoilSense Logo" class="h-8 w-8 mr-2">
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-1">
+                    <a href="index.html" class="py-4 px-2 text-primary font-semibold border-b-4 border-primary">Home</a>
+                    <a href="sobre.html" class="py-4 px-2 text-gray-500 font-semibold hover:text-primary transition duration-300">Sobre</a>
+                    <a href="tecnologias.html" class="py-4 px-2 text-gray-500 font-semibold hover:text-primary transition duration-300">Tecnologias</a>
+                    <a href="blog.html" class="py-4 px-2 text-gray-500 font-semibold hover:text-primary transition duration-300">Blog</a>
+                    <a href="faq.html" class="py-4 px-2 text-gray-500 font-semibold hover:text-primary transition duration-300">FAQ</a>
+                    <a href="contato.html" class="py-4 px-2 text-gray-500 font-semibold hover:text-primary transition duration-300">Contato</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button class="outline-none mobile-menu-button">
+                        <i data-feather="menu" class="w-6 h-6 text-gray-500"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div class="hidden mobile-menu">
+            <ul class="bg-white">
+                <li><a href="index.html" class="block text-sm px-2 py-4 hover:bg-primary hover:text-white transition duration-300">Home</a></li>
+                <li><a href="sobre.html" class="block text-sm px-2 py-4 hover:bg-primary hover:text-white transition duration-300">Sobre</a></li>
+                <li><a href="tecnologias.html" class="block text-sm px-2 py-4 hover:bg-primary hover:text-white transition duration-300">Tecnologias</a></li>
+                <li><a href="blog.html" class="block text-sm px-2 py-4 hover:bg-primary hover:text-white transition duration-300">Blog</a></li>
+                <li class="active"><a href="faq.html" class="block text-sm px-2 py-4 text-primary font-semibold">FAQ</a></li>
+                <li><a href="contato.html" class="block text-sm px-2 py-4 hover:bg-primary hover:text-white transition duration-300">Contato</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="faq-bg text-white py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6">Perguntas Frequentes</h1>
+            <p class="text-xl">Encontre respostas para as dúvidas mais comuns sobre o SoilSense</p>
+        </div>
+    </section>
+
+    <!-- FAQ Content -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <!-- Search -->
+                <div class="mb-12">
+                    <div class="relative">
+                        <input type="text" placeholder="Buscar perguntas..." class="w-full px-6 py-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                        <i data-feather="search" class="absolute right-4 top-4 text-gray-400"></i>
+                    </div>
+                </div>
+
+                <!-- FAQ Categories -->
+                <div class="mb-8">
+                    <div class="flex flex-wrap gap-4 justify-center">
+                        <button class="bg-primary text-white px-6 py-2 rounded-lg font-semibold">Geral</button>
+                        <button class="bg-gray-200 text-gray-700 px-6 py-2 rounded-lg font-semibold hover:bg-gray-300">Instalação</button>
+                        <button class="bg-gray-200 text-gray-700 px-6 py-2 rounded-lg font-semibold hover:bg-gray-300">Tecnologia</button>
+                        <button class="bg-gray-200 text-gray-700 px-6 py-2 rounded-lg font-semibold hover:bg-gray-300">Suporte</button>
+                    </div>
+                </div>
+
+                <!-- FAQ Items -->
+                <div class="space-y-6">
+                    <!-- FAQ Item 1 -->
+                    <div class="faq-item bg-gray-50 rounded-lg p-6">
+                        <button class="faq-question w-full text-left flex justify-between items-center">
+                            <h3 class="text-xl font-bold text-gray-800">Quanto custa o sistema SoilSense?</h3>
+                            <i data-feather="plus" class="text-primary"></i>
+                        </button>
+                        <div class="faq-answer mt-4">
+                            <p class="text-gray-600">O custo total do sistema SoilSense é de aproximadamente R$ 135,87, incluindo todos os componentes: ESP32 Mini, sensores de umidade, temperatura e luminosidade, protoboard, jumpers e resistores.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 2 -->
+                    <div class="faq-item bg-gray-50 rounded-lg p-6">
+                        <button class="faq-question w-full text-left flex justify-between items-center">
+                            <h3 class="text-xl font-bold text-gray-800">Qual a economia de água que posso esperar?</h3>
+                            <i data-feather="plus" class="text-primary"></i>
+                        </button>
+                        <div class="faq-answer mt-4">
+                            <p class="text-gray-600">Em testes realizados em horta experimental, o SoilSense demonstrou uma redução média de 27% no consumo de água, comparado com irrigação manual sem controle.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 3 -->
+                    <div class="faq-item bg-gray-50 rounded-lg p-6">
+                        <button class="faq-question w-full text-left flex justify-between items-center">
+                            <h3 class="text-xl font-bold text-gray-800">Preciso de conexão com internet?</h3>
+                            <i data-feather="plus" class="text-primary"></i>
+                        </button>
+                        <div class="faq-answer mt-4">
+                            <p class="text-gray-600">Sim, o sistema requer conexão Wi-Fi estável para transmissão dos dados em tempo real para a plataforma na nuvem. A atualização ocorre a cada 1 minuto.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 4 -->
+                    <div class="faq-item bg-gray-50 rounded-lg p-6">
+                        <button class="faq-question w-full text-left flex justify-between items-center">
+                            <h3 class="text-xl font-bold text-gray-800">Como é feita a instalação dos sensores?</h3>
+                            <i data-feather="plus" class="text-primary"></i>
+                        </button>
+                        <div class="faq-answer mt-4">
+                            <p class="text-gray-600">A instalação é simples: os sensores são enterrados no solo na profundidade recomendada para cada tipo de cultura, e o módulo ESP32 é posicionado em local protegido com acesso à energia e sinal Wi-Fi.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 5 -->
+                    <div class="faq-item bg-gray-50 rounded-lg p-6">
+                        <button class="faq-question w-full text-left flex justify-between items-center">
+                            <h3 class="text-xl font-bold text-gray-800">Quais culturas são compatíveis com o sistema?</h3>
+                            <i data-feather="plus" class="text-primary"></i>
+                        </button>
+                        <div class="faq-answer mt-4">
+                            <p class="text-gray-600">O SoilSense é compatível com diversas culturas, especialmente hortaliças, frutas e plantas ornamentais. Foi testado com sucesso em alface, morango, tomate e outras culturas de pequeno porte.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 6 -->
+                    <div class="faq-item bg-gray-50 rounded-lg p-6">
+                        <button class="faq-question w-full text-left flex justify-between items-center">
+                            <h3 class="text-xl font-bold text-gray-800">Qual a duração da bateria?</h3>
+                            <i data-feather="plus" class="text-primary"></i>
+                        </button>
+                        <div class="faq-answer mt-4">
+                            <p class="text-gray-600">O sistema foi projetado para operação contínua com fonte de alimentação. Em caso de uso com bateria, recomenda-se fonte com capacidade mínima de 2000mAh para operação por 24 horas.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 7 -->
+                    <div class="faq-item bg-gray-50 rounded-lg p-6">
+                        <button class="faq-question w-full text-left flex justify-between items-center">
+                            <h3 class="text-xl font-bold text-gray-800">Posso monitorar múltiplas áreas?</h3>
+                            <i data-feather="plus" class="text-primary"></i>
+                        </button>
+                        <div class="faq-answer mt-4">
+                            <p class="text-gray-600">Sim, é possível expandir o sistema com múltiplos sensores em diferentes áreas. Cada sensor é identificado individualmente na plataforma.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Still have questions -->
+                <div class="mt-12 bg-primary text-white rounded-lg p-8 text-center">
+                    <h3 class="text-2xl font-bold mb-4">Ainda tem dúvidas?</h3>
+                    <p class="mb-6">Entre em contato conosco para mais informações sobre o SoilSense.</p>
+                    <a href="contato.html" class="bg-white text-primary px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition duration-300">
+                        Entrar em Contato
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <i data-feather="sun" class="h-6 w-6 mr-2"></i> SoilSense
+                    </h3>
+                    <p class="text-gray-400">Tecnologia inovadora para agricultura inteligente e sustentável.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition duration-300">Home</a></li>
+                        <li><a href="sobre.html" class="text-gray-400 hover:text-white transition duration-300">Sobre</a></li>
+                        <li><a href="tecnologias.html" class="text-gray-400 hover:text-white transition duration-300">Tecnologias</a></li>
+                        <li><a href="blog.html" class="text-gray-400 hover:text-white transition duration-300">Blog</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">FAQ</a></li>
+                        <li><a href="contato.html" class="text-gray-400 hover:text-white transition duration-300">Contato</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Contato</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-center"><i data-feather="mail" class="h-4 w-4 mr-2"></i> contato@soilsense.com</li>
+                        <li class="flex items-center"><i data-feather="phone" class="h-4 w-4 mr-2"></i> (41) 98765-4321</li>
+                        <li class="flex items-center"><i data-feather="map-pin" class="h-4 w-4 mr-2"></i> Curitiba, PR</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Redes Sociais</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300"><i data-feather="facebook" class="h-6 w-6"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300"><i data-feather="instagram" class="h-6 w-6"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300"><i data-feather="twitter" class="h-6 w-6"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300"><i data-feather="youtube" class="h-6 w-6"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 SoilSense. Desenvolvido como projeto de TCC na ETEC Bento Quirino. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const btn = document.querySelector(".mobile-menu-button");
+        const menu = document.querySelector(".mobile-menu");
+
+        btn.addEventListener("click", () => {
+            menu.classList.toggle("hidden");
+        });
+
+        // FAQ accordion
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const faqItem = button.parentElement;
+                const isActive = faqItem.classList.contains('active');
+                
+                // Close all items
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                    item.querySelector('i').setAttribute('data-feather', 'plus');
+                });
+                
+                // Open current if it was closed
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                    button.querySelector('i').setAttribute('data-feather', 'minus');
+                }
+                
+                feather.replace();
+            });
+        });
+
+        // Initialize feather icons
+        feather.replace();
+    </script>
+</body>
+</html>

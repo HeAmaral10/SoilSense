@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Nós - SoilSense</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <style>
+        .team-bg {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('http://static.photos/agriculture/1200x630/43');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between">
+                <div class="flex space-x-7">
+                    <a href="index.html" class="flex items-center py-4 px-2">
+                        <!-- Logo atualizada para imagem PNG -->
+                        <img src="logo.png" alt="SoilSense Logo" class="h-8 w-8 mr-2">
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-1">
+                    <a href="index.html" class="py-4 px-2 text-primary font-semibold border-b-4 border-primary">Home</a>
+                    <a href="sobre.html" class="py-4 px-2 text-gray-500 font-semibold hover:text-primary transition duration-300">Sobre</a>
+                    <a href="tecnologias.html" class="py-4 px-2 text-gray-500 font-semibold hover:text-primary transition duration-300">Tecnologias</a>
+                    <a href="blog.html" class="py-4 px-2 text-gray-500 font-semibold hover:text-primary transition duration-300">Blog</a>
+                    <a href="faq.html" class="py-4 px-2 text-gray-500 font-semibold hover:text-primary transition duration-300">FAQ</a>
+                    <a href="contato.html" class="py-4 px-2 text-gray-500 font-semibold hover:text-primary transition duration-300">Contato</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button class="outline-none mobile-menu-button">
+                        <i data-feather="menu" class="w-6 h-6 text-gray-500"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div class="hidden mobile-menu">
+            <ul class="bg-white">
+                <li><a href="index.html" class="block text-sm px-2 py-4 hover:bg-primary hover:text-white transition duration-300">Home</a></li>
+                <li><a href="sobre.html" class="block text-sm px-2 py-4 hover:bg-primary hover:text-white transition duration-300">Sobre</a></li>
+                <li><a href="tecnologias.html" class="block text-sm px-2 py-4 hover:bg-primary hover:text-white transition duration-300">Tecnologias</a></li>
+                <li class="active"><a href="sobre.html" class="block text-sm px-2 py-4 text-primary font-semibold">Blog</a></li>
+                <li><a href="faq.html" class="block text-sm px-2 py-4 hover:bg-primary hover:text-white transition duration-300">FAQ</a></li>
+                <li><a href="contato.html" class="block text-sm px-2 py-4 hover:bg-primary hover:text-white transition duration-300">Contato</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="team-bg text-white py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6">Sobre o SoilSense</h1>
+            <p class="text-xl max-w-2xl mx-auto">Conheça a tecnologia que está revolucionando a agricultura de pequeno porte</p>
+        </div>
+    </section>
+
+    <!-- About Content -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="mb-12">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-6">Nossa História</h2>
+                    <p class="text-gray-600 mb-4">O SoilSense nasceu como um projeto de TCC de estudantes da ETEC Bento Quirino, unidos pela paixão por tecnologia e agricultura sustentável.</p>
+                    <p class="text-gray-600 mb-4">Percebendo a falta de soluções acessíveis para pequenos produtores monitorarem a temperatura do solo - um fator crítico para o sucesso das plantações - decidimos criar uma solução simples, eficiente e acessível.</p>
+                    <p class="text-gray-600">Inicialmente desenvolvido com Arduino Uno R3, o projeto evoluiu para utilizar o ESP32 DEVKITV1 devido a limitações técnicas encontradas, aproveitando sua conectividade Wi-Fi/Bluetooth nativa e maior capacidade de processamento.</p>
+                </div>
+
+                <div class="mb-12">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-6">Nossa Missão</h2>
+                    <p class="text-gray-600 mb-4">Democratizar o acesso à tecnologia de precisão para pequenos produtores agrícolas, possibilitando que tomem decisões mais informadas e aumentem sua produtividade de forma sustentável.</p>
+                    <p class="text-gray-600">Acreditamos que a tecnologia deve ser acessível a todos, independentemente do tamanho da propriedade ou do volume de produção.</p>
+                </div>
+
+                <!-- Resultados Comprovados -->
+                <div class="mb-12">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-6">Resultados Esperados</h2>
+                    <div class="grid md:grid-cols-2 gap-6 mb-6">
+                        <div class="bg-gray-50 p-6 rounded-lg text-center">
+                            <div class="text-primary text-4xl font-bold mb-2">27%</div>
+                            <p class="text-gray-600">Redução no consumo de água</p>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded-lg text-center">
+                            <div class="text-primary text-4xl font-bold mb-2">16,6%</div>
+                            <p class="text-gray-600">Aumento no crescimento das plantas</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-12">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-6">Como Funciona</h2>
+                    <div class="grid md:grid-cols-2 gap-8 mb-8">
+                        <div class="bg-gray-50 p-6 rounded-lg">
+                            <div class="text-primary mb-4">
+                                <i data-feather="cpu" class="h-8 w-8"></i>
+                            </div>
+                            <h3 class="font-bold text-xl mb-2">Tecnologia do Sensor</h3>
+                            <p class="text-gray-600 mb-2">Nosso sistema utiliza:</p>
+                            <ul class="text-gray-600 list-disc list-inside space-y-1">
+                                <li>Sensor capacitivo de umidade do solo (resistente à corrosão)</li>
+                                <li>Sensor de temperatura DS18B20 (precisão ±0.5°C)</li>
+                                <li>Sensor de luminosidade LDR 5mm</li>
+                                <li>ESP32 Mini com conectividade Wi-Fi nativa</li>
+                            </ul>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded-lg">
+                            <div class="text-primary mb-4">
+                                <i data-feather="cloud" class="h-8 w-8"></i>
+                            </div>
+                            <h3 class="font-bold text-xl mb-2">Plataforma em Nuvem</h3>
+                            <p class="text-gray-600">Os dados são transmitidos via Wi-Fi para nossa plataforma na nuvem, onde são processados e transformados em insights acionáveis com atualização média a cada 1 minuto.</p>
+                        </div>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="bg-gray-50 p-6 rounded-lg">
+                            <div class="text-primary mb-4">
+                                <i data-feather="smartphone" class="h-8 w-8"></i>
+                            </div>
+                            <h3 class="font-bold text-xl mb-2">Interface Digital</h3>
+                            <p class="text-gray-600">Desenvolvemos aplicativo web e mobile compatível com smartphones Android para monitoramento remoto em tempo real das variáveis ambientais.</p>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded-lg">
+                            <div class="text-primary mb-4">
+                                <i data-feather="zap" class="h-8 w-8"></i>
+                            </div>
+                            <h3 class="font-bold text-xl mb-2">Solução Acessível</h3>
+                            <p class="text-gray-600">Custo total de aproximadamente R$ 135,87, tornando a tecnologia de precisão acessível para pequenos produtores e hortas urbanas.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Materiais e Custos -->
+                <div class="mb-12">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-6">Investimento e Materiais</h2>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="bg-gray-50 p-6 rounded-lg">
+                            <h3 class="font-bold text-xl mb-4">Materiais Utilizados</h3>
+                            <ul class="text-gray-600 space-y-2">
+                                <li>• Placa ESP32 DEVKITV1</li>
+                                <li>• Sensor de umidade do solo capacitivo</li>
+                                <li>• Sensor de temperatura DS18B20</li>
+                                <li>• Sensor de luminosidade LDR 5mm</li>
+                                <li>• Protoboard, jumpers e resistores</li>
+                                <li>• Fonte de alimentação portátil</li>
+                            </ul>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded-lg">
+                            <h3 class="font-bold text-xl mb-4">Custos Estimados</h3>
+                            <div class="space-y-2">
+                                <div class="flex justify-between">
+                                    <span class="text-gray-600">ESP32 DEVKITV1 + componentes</span>
+                                    <span class="font-semibold">R$ 135,87</span>
+                                </div>
+                                <div class="flex justify-between border-t pt-2">
+                                    <span class="text-gray-800 font-bold">Total</span>
+                                    <span class="text-primary font-bold">R$ 135,87</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Equipe -->
+                <div class="mb-12">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-6">Nossa Equipe</h2>
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div class="text-center">
+                            <img src="http://static.photos/people/200x200/4" alt="Henrique Professor de Amaral" class="h-32 w-32 rounded-full mx-auto mb-4">
+                            <h3 class="font-bold text-lg">Henrique Professor de Amaral</h3>
+                            <p class="text-gray-500 mb-2">Desenvolvedor</p>
+                            <p class="text-gray-600 text-sm">Responsável pela montagem do protótipo e desenvolvimento mobile</p>
+                        </div>
+                        <div class="text-center">
+                            <img src="http://static.photos/people/200x200/5" alt="Matheus Candido Arrabal" class="h-32 w-32 rounded-full mx-auto mb-4">
+                            <h3 class="font-bold text-lg">Matheus Candido Arrabal</h3>
+                            <p class="text-gray-500 mb-2">Desenvolvedor</p>
+                            <p class="text-gray-600 text-sm">Responsável pelo desenvolvimento do sistema e integração tecnológica</p>
+                        </div>
+                        <div class="text-center">
+                            <img src="http://static.photos/people/200x200/6" alt="Tiago Castro Leite Reis" class="h-32 w-32 rounded-full mx-auto mb-4">
+                            <h3 class="font-bold text-lg">Tiago Castro Leite Reis</h3>
+                            <p class="text-gray-500 mb-2">Desenvolvedor</p>
+                            <p class="text-gray-600 text-sm">Responsável pela coleta de dados e análise dos resultados</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Orientadoras -->
+                <div class="mb-12">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-6">Orientação</h2>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="text-center">
+                            <div class="bg-gray-100 h-32 w-32 rounded-full mx-auto mb-4 flex items-center justify-center">
+                                <i data-feather="user" class="h-12 w-12 text-gray-400"></i>
+                            </div>
+                            <h3 class="font-bold text-lg">Simone dos Santos Medeiros Lacerda</h3>
+                            <p class="text-gray-500 mb-2">Orientadora</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="bg-gray-100 h-32 w-32 rounded-full mx-auto mb-4 flex items-center justify-center">
+                                <i data-feather="user" class="h-12 w-12 text-gray-400"></i>
+                            </div>
+                            <h3 class="font-bold text-lg">Wania Maria Battacini Dei Santi</h3>
+                            <p class="text-gray-500 mb-2">Orientadora</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Próximos Passos -->
+                <div class="mb-12">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-6">Próximos Passos</h2>
+                    <div class="bg-blue-50 border-l-4 border-blue-500 p-6">
+                        <p class="text-gray-800 mb-4">Para o aprimoramento do SoilSense, propõe-se:</p>
+                        <ul class="text-gray-600 list-disc list-inside space-y-2">
+                            <li>Expandir sensores para incluir pH do solo e condutividade elétrica</li>
+                            <li>Desenvolver algoritmos preditivos com inteligência artificial</li>
+                            <li>Aprimorar a interface móvel com alertas automáticos</li>
+                            <li>Testar em diferentes contextos agrícolas</li>
+                            <li>Buscar parcerias institucionais para escalonamento</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <i data-feather="sun" class="h-6 w-6 mr-2"></i> SoilSense
+                    </h3>
+                    <p class="text-gray-400">Tecnologia inovadora para agricultura inteligente e sustentável.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition duration-300">Home</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Sobre</a></li>
+                        <li><a href="cadastro.html" class="text-gray-400 hover:text-white transition duration-300">Cadastro</a></li>
+                        <li><a href="login.html" class="text-gray-400 hover:text-white transition duration-300">Login</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Contato</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-center"><i data-feather="mail" class="h-4 w-4 mr-2"></i> contato@soilsense.com</li>
+                        <li class="flex items-center"><i data-feather="phone" class="h-4 w-4 mr-2"></i> (41) 98765-4321</li>
+                        <li class="flex items-center"><i data-feather="map-pin" class="h-4 w-4 mr-2"></i> Curitiba, PR</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Redes Sociais</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300"><i data-feather="facebook" class="h-6 w-6"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300"><i data-feather="instagram" class="h-6 w-6"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300"><i data-feather="twitter" class="h-6 w-6"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300"><i data-feather="youtube" class="h-6 w-6"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 SoilSense. Desenvolvido como projeto de TCC na ETEC Bento Quirino. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const btn = document.querySelector(".mobile-menu-button");
+        const menu = document.querySelector(".mobile-menu");
+
+        btn.addEventListener("click", () => {
+            menu.classList.toggle("hidden");
+        });
+
+        // Initialize feather icons
+        feather.replace();
+    </script>
+</body>
+</html>

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoilSense - Monitoramento Inteligente do Solo</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#10b981', // Cor verde consistente com as outras páginas
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hero-bg {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('http://static.photos/agriculture/1200x630/42');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between">
+                <div class="flex space-x-7">
+                    <a href="index.html" class="flex items-center py-4 px-2">
+                        <!-- Logo aumentada no header -->
+                        <img src="logo.png" alt="SoilSense Logo" class="h-10 w-10 mr-3">
+                        <span class="font-bold text-primary text-xl">SoilSense</span>
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-1">
+                    <a href="index.html" class="py-4 px-2 text-primary font-semibold border-b-4 border-primary">Home</a>
+                    <a href="sobre.html" class="py-4 px-2 text-gray-500 font-semibold hover:text-primary transition duration-300">Sobre</a>
+                    <a href="tecnologias.html" class="py-4 px-2 text-gray-500 font-semibold hover:text-primary transition duration-300">Tecnologias</a>
+                    <a href="blog.html" class="py-4 px-2 text-gray-500 font-semibold hover:text-primary transition duration-300">Blog</a>
+                    <a href="faq.html" class="py-4 px-2 text-gray-500 font-semibold hover:text-primary transition duration-300">FAQ</a>
+                    <a href="contato.html" class="py-4 px-2 text-gray-500 font-semibold hover:text-primary transition duration-300">Contato</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button class="outline-none mobile-menu-button">
+                        <i data-feather="menu" class="w-6 h-6 text-gray-500"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div class="hidden mobile-menu">
+            <ul class="bg-white">
+                <li class="active"><a href="index.html" class="block text-sm px-2 py-4 text-primary font-semibold">Home</a></li>
+                <li><a href="sobre.html" class="block text-sm px-2 py-4 hover:bg-primary hover:text-white transition duration-300">Sobre</a></li>
+                <li><a href="tecnologias.html" class="block text-sm px-2 py-4 hover:bg-primary hover:text-white transition duration-300">Tecnologias</a></li>
+                <li><a href="blog.html" class="block text-sm px-2 py-4 hover:bg-primary hover:text-white transition duration-300">Blog</a></li>
+                <li><a href="faq.html" class="block text-sm px-2 py-4 hover:bg-primary hover:text-white transition duration-300">FAQ</a></li>
+                <li><a href="contato.html" class="block text-sm px-2 py-4 hover:bg-primary hover:text-white transition duration-300">Contato</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-bg text-white py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">Tecnologia para Agricultura Inteligente</h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">Monitore a temperatura do solo em tempo real e aumente a produtividade da sua plantação</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="sobre.html" class="bg-transparent hover:bg-white hover:text-gray-800 text-white font-bold py-3 px-6 border-2 border-white rounded-lg transition duration-300">
+                    Saiba Mais
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Tecnologia validada em ambiente real</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Solução desenvolvida como TCC na ETEC Bento Quirino com resultados comprovados de 27% de economia de água e 16,6% de aumento na produtividade</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-gray-50 p-8 rounded-lg text-center">
+                    <div class="text-primary mb-4">
+                        <i data-feather="cpu" class="h-12 w-12 mx-auto"></i>
+                    </div>
+                    <h3 class="font-bold text-xl mb-2">Sensores Precisos</h3>
+                    <p class="text-gray-600">Sensor capacitivo de umidade, DS18B20 para temperatura (±0.5°C) e LDR para luminosidade, integrados ao ESP32 Mini.</p>
+                </div>
+                <div class="bg-gray-50 p-8 rounded-lg text-center">
+                    <div class="text-primary mb-4">
+                        <i data-feather="smartphone" class="h-12 w-12 mx-auto"></i>
+                    </div>
+                    <h3 class="font-bold text-xl mb-2">Monitoramento em Tempo Real</h3>
+                    <p class="text-gray-600">Acesso remoto via aplicativo web e mobile com atualização a cada 1 minuto.</p>
+                </div>
+                <div class="bg-gray-50 p-8 rounded-lg text-center">
+                    <div class="text-primary mb-4">
+                        <i data-feather="trending-up" class="h-12 w-12 mx-auto"></i>
+                    </div>
+                    <h3 class="font-bold text-xl mb-2">Resultados Comprovados</h3>
+                    <p class="text-gray-600">27% de economia de água e 16,6% de aumento no crescimento das plantas em testes controlados.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0">
+                    <img src="http://static.photos/agriculture/600x400/41" alt="Agricultor usando SoilSense" class="rounded-lg shadow-md">
+                </div>
+                <div class="md:w-1/2 md:pl-12">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-6">Benefícios para o Produtor</h2>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="text-primary mr-4 mt-1">
+                                <i data-feather="check-circle" class="h-6 w-6"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg">Aumento da Produtividade</h3>
+                                <p class="text-gray-600">Otimize o crescimento das plantas mantendo a temperatura ideal do solo.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="text-primary mr-4 mt-1">
+                                <i data-feather="check-circle" class="h-6 w-6"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg">Redução de Perdas</h3>
+                                <p class="text-gray-600">Receba alertas antecipados sobre condições adversas que podem prejudicar sua plantação.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="text-primary mr-4 mt-1">
+                                <i data-feather="check-circle" class="h-6 w-6"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg">Economia de Recursos</h3>
+                                <p class="text-gray-600">Use água e fertilizantes de forma mais eficiente baseando-se em dados reais.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">O que nossos usuários dizem</h2>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-gray-50 p-8 rounded-lg">
+                    <div class="text-primary mb-4">
+                        <i data-feather="star" class="h-5 w-5 inline"></i>
+                        <i data-feather="star" class="h-5 w-5 inline"></i>
+                        <i data-feather="star" class="h-5 w-5 inline"></i>
+                        <i data-feather="star" class="h-5 w-5 inline"></i>
+                        <i data-feather="star" class="h-5 w-5 inline"></i>
+                    </div>
+                    <p class="text-gray-600 mb-4">"Com o SoilSense, consegui aumentar minha produção de morangos em 30%. Os alertas de temperatura me ajudaram a prevenir problemas antes que acontecessem."</p>
+                    <div class="flex items-center">
+                        <img src="http://static.photos/people/200x200/1" alt="Carlos Mendes" class="h-10 w-10 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Carlos Mendes</h4>
+                            <p class="text-gray-500 text-sm">Produtor de morangos - São Paulo</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gray-50 p-8 rounded-lg">
+                    <div class="text-primary mb-4">
+                        <i data-feather="star" class="h-5 w-5 inline"></i>
+                        <i data-feather="star" class="h-5 w-5 inline"></i>
+                        <i data-feather="star" class="h-5 w-5 inline"></i>
+                        <i data-feather="star" class="h-5 w-5 inline"></i>
+                        <i data-feather="star" class="h-5 w-5 inline"></i>
+                    </div>
+                    <p class="text-gray-600 mb-4">"Finalmente uma tecnologia acessível para pequenos produtores. O investimento no SoilSense se pagou em apenas uma safra com a economia de água que tive."</p>
+                    <div class="flex items-center">
+                        <img src="http://static.photos/people/200x200/2" alt="Maria Santos" class="h-10 w-10 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Maria Santos</h4>
+                            <p class="text-gray-500 text-sm">Agricultura familiar - Paraná</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <!-- Logo aumentada no footer também -->
+                        <img src="logo.png" alt="SoilSense Logo" class="h-8 w-8 mr-3">
+                        SoilSense
+                    </h3>
+                    <p class="text-gray-400">Tecnologia inovadora para agricultura inteligente e sustentável.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition duration-300">Home</a></li>
+                        <li><a href="sobre.html" class="text-gray-400 hover:text-white transition duration-300">Sobre</a></li>
+                        <li><a href="tecnologias.html" class="text-gray-400 hover:text-white transition duration-300">Tecnologias</a></li>
+                        <li><a href="blog.html" class="text-gray-400 hover:text-white transition duration-300">Blog</a></li>
+                        <li><a href="faq.html" class="text-gray-400 hover:text-white transition duration-300">FAQ</a></li>
+                        <li><a href="contato.html" class="text-gray-400 hover:text-white transition duration-300">Contato</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Contato</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-center"><i data-feather="mail" class="h-4 w-4 mr-2"></i> contato@soilsense.com</li>
+                        <li class="flex items-center"><i data-feather="phone" class="h-4 w-4 mr-2"></i> (41) 98765-4321</li>
+                        <li class="flex items-center"><i data-feather="map-pin" class="h-4 w-4 mr-2"></i> Curitiba, PR</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Redes Sociais</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300"><i data-feather="facebook" class="h-6 w-6"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300"><i data-feather="instagram" class="h-6 w-6"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300"><i data-feather="twitter" class="h-6 w-6"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300"><i data-feather="youtube" class="h-6 w-6"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 SoilSense. Desenvolvido como projeto de TCC na ETEC Bento Quirino. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Mobile menu toggle
+        const btn = document.querySelector(".mobile-menu-button");
+        const menu = document.querySelector(".mobile-menu");
+
+        btn.addEventListener("click", () => {
+            menu.classList.toggle("hidden");
+        });
+
+        // Initialize feather icons
+        feather.replace();
+    </script>
+</body>
+</html>
