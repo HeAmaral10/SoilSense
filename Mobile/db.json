@@ -6,7 +6,8 @@
       "umidadeRecomendada": 60,
       "temperaturaMin": 15,
       "temperaturaMax": 25,
-      "luminosidadeRecomendada": 85
+      "solHorasMin": 4,
+      "solHorasMax": 6
     },
     {
       "id": "2",
@@ -14,7 +15,8 @@
       "umidadeRecomendada": 70,
       "temperaturaMin": 16,
       "temperaturaMax": 22,
-      "luminosidadeRecomendada": 90
+      "solHorasMin": 6,
+      "solHorasMax": 8
     },
     {
       "id": "3",
@@ -22,7 +24,8 @@
       "umidadeRecomendada": 65,
       "temperaturaMin": 18,
       "temperaturaMax": 28,
-      "luminosidadeRecomendada": 75
+      "solHorasMin": 6,
+      "solHorasMax": 8
     },
     {
       "id": "4",
@@ -30,7 +33,8 @@
       "umidadeRecomendada": 75,
       "temperaturaMin": 20,
       "temperaturaMax": 30,
-      "luminosidadeRecomendada": 95
+      "solHorasMin": 6,
+      "solHorasMax": 8
     },
     {
       "id": "5",
@@ -38,7 +42,8 @@
       "umidadeRecomendada": 50,
       "temperaturaMin": 18,
       "temperaturaMax": 30,
-      "luminosidadeRecomendada": 80
+      "solHorasMin": 6,
+      "solHorasMax": 8
     }
   ],
   "usuarios": [
@@ -78,13 +83,38 @@
       "id": "2185",
       "nome": "Escola",
       "planta": "Alface Crespa",
-      "umidade": 0,
-      "temperatura": 0,
-      "luminosidade": 0,
+      "umidade": 68,
+      "temperatura": 23.25,
+      "luminosidade": 42,
       "bateria": 0,
-      "data": "25/07/2025",
+      "data": "22/10/2025",
       "localizacao": "Escola",
       "usuarioId": 1
     }
-  ]
+  ],
+  "leituras": {
+    "2": [],
+    "2185": [
+      {"hora":"2025-10-22T20:10:03-03:00","umidade_pct":100,"valorUmidade":0,"valorLuz":1616,"luminosidade_pct":39,"temperatura_c":22.56,"millis":3132},
+      {"hora":"2025-10-22T20:10:04-03:00","umidade_pct":98,"valorUmidade":15,"valorLuz":1620,"luminosidade_pct":40,"temperatura_c":22.60,"millis":4135},
+      {"hora":"2025-10-22T20:10:05-03:00","umidade_pct":96,"valorUmidade":25,"valorLuz":1632,"luminosidade_pct":40,"temperatura_c":22.63,"millis":5138},
+      {"hora":"2025-10-22T20:10:06-03:00","umidade_pct":95,"valorUmidade":33,"valorLuz":1640,"luminosidade_pct":40,"temperatura_c":22.70,"millis":6140},
+      {"hora":"2025-10-22T20:10:07-03:00","umidade_pct":93,"valorUmidade":42,"valorLuz":1655,"luminosidade_pct":40,"temperatura_c":22.74,"millis":7145},
+      {"hora":"2025-10-22T20:10:08-03:00","umidade_pct":92,"valorUmidade":50,"valorLuz":1663,"luminosidade_pct":41,"temperatura_c":22.78,"millis":8147},
+      {"hora":"2025-10-22T20:10:09-03:00","umidade_pct":90,"valorUmidade":61,"valorLuz":1668,"luminosidade_pct":41,"temperatura_c":22.80,"millis":9150},
+      {"hora":"2025-10-22T20:10:10-03:00","umidade_pct":88,"valorUmidade":72,"valorLuz":1672,"luminosidade_pct":41,"temperatura_c":22.85,"millis":10153},
+      {"hora":"2025-10-22T20:10:11-03:00","umidade_pct":86,"valorUmidade":83,"valorLuz":1675,"luminosidade_pct":41,"temperatura_c":22.90,"millis":11160},
+      {"hora":"2025-10-22T20:10:12-03:00","umidade_pct":84,"valorUmidade":94,"valorLuz":1680,"luminosidade_pct":41,"temperatura_c":22.93,"millis":12162},
+      {"hora":"2025-10-22T20:10:13-03:00","umidade_pct":82,"valorUmidade":105,"valorLuz":1690,"luminosidade_pct":41,"temperatura_c":22.95,"millis":13165},
+      {"hora":"2025-10-22T20:10:14-03:00","umidade_pct":80,"valorUmidade":116,"valorLuz":1695,"luminosidade_pct":41,"temperatura_c":23.00,"millis":14170},
+      {"hora":"2025-10-22T20:10:15-03:00","umidade_pct":79,"valorUmidade":122,"valorLuz":1700,"luminosidade_pct":42,"temperatura_c":23.02,"millis":15172},
+      {"hora":"2025-10-22T20:10:16-03:00","umidade_pct":77,"valorUmidade":132,"valorLuz":1705,"luminosidade_pct":42,"temperatura_c":23.06,"millis":16175},
+      {"hora":"2025-10-22T20:10:17-03:00","umidade_pct":75,"valorUmidade":142,"valorLuz":1710,"luminosidade_pct":42,"temperatura_c":23.10,"millis":17178},
+      {"hora":"2025-10-22T20:10:18-03:00","umidade_pct":74,"valorUmidade":148,"valorLuz":1715,"luminosidade_pct":42,"temperatura_c":23.12,"millis":18180},
+      {"hora":"2025-10-22T20:10:19-03:00","umidade_pct":72,"valorUmidade":157,"valorLuz":1720,"luminosidade_pct":42,"temperatura_c":23.15,"millis":19185},
+      {"hora":"2025-10-22T20:10:20-03:00","umidade_pct":71,"valorUmidade":163,"valorLuz":1725,"luminosidade_pct":42,"temperatura_c":23.17,"millis":20190},
+      {"hora":"2025-10-22T20:10:21-03:00","umidade_pct":69,"valorUmidade":173,"valorLuz":1732,"luminosidade_pct":42,"temperatura_c":23.20,"millis":21193},
+      {"hora":"2025-10-22T20:10:22-03:00","umidade_pct":68,"valorUmidade":180,"valorLuz":1740,"luminosidade_pct":42,"temperatura_c":23.25,"millis":22196}
+    ]
+  }
 }

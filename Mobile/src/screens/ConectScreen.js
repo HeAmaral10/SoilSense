@@ -13,7 +13,7 @@ export default function ConectScreen({ navigation }) {
   useEffect(() => {
     async function carregarPlantas() {
       try {
-        const res = await fetch('http://172.31.144.1:3000/plantas');
+        const res = await fetch('http://localhost:3000/plantas');
         const data = await res.json();
         setPlantas(data);
       } catch (error) {
@@ -30,7 +30,7 @@ export default function ConectScreen({ navigation }) {
     }
 
     try {
-      const res = await fetch('http://172.31.144.1:3000/dispositivos', {
+      const res = await fetch('http://localhost:3000/dispositivos', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

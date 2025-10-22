@@ -4,18 +4,28 @@ import api from '../services/api';
 
 export default function DeviceScreen({ navigation }) {
   const [dispositivos, setDispositivos] = useState([]);
+  const [plantas, setPlantas] = useState([]);
 
   useEffect(() => {
-    fetchDispositivos();
+    fetchAll();
   }, []);
 
-  async function fetchDispositivos() {
+  async function fetchAll() {
     try {
-      const res = await api.get('/dispositivos', { params: { usuarioId: 1 } });
-      setDispositivos(res.data);
+      const [resDisp, resPlantas] = await Promise.all([
+        api.get('/dispositivos', { params: { usuarioId: 1 } }),
+        api.get('/plantas'),
+      ]);
+      setDispositivos(resDisp.data || []);
+      setPlantas(resPlantas.data || []);
     } catch (error) {
-      Alert.alert('Erro ao buscar dispositivos', error.message);
+      Alert.alert('Erro ao buscar dados', error.message);
     }
+  }
+
+  function getPlanta(nome) {
+    const alvo = String(nome || '').toLowerCase();
+    return plantas.find(p => p.nome.toLowerCase() === alvo);
   }
 
   async function handleDelete(id) {
@@ -39,23 +49,47 @@ export default function DeviceScreen({ navigation }) {
       ]
     );
   }
+
+  function abrirGraficos(dispositivo) {
+    navigation.navigate('DataScreen', {
+      deviceId: dispositivo.id,
+      deviceName: dispositivo.nome,
+      planta: dispositivo.planta,
+    });
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.overlay}>
         <Image source={require('../assets/logo-soilsense.png')} style={styles.logoOverlay} />
       </View>
       <ScrollView contentContainerStyle={styles.content}>
-        {dispositivos.map((item) => (
-          <View key={item.id} style={styles.card}>
-            <Text style={styles.nome}>{item.nome}</Text>
-            <Text style={styles.info}>Planta: {item.planta}</Text>
-            <Text style={styles.info}>Bateria: {item.bateria}%</Text>
-            <Text style={styles.info}>Localização: {item.localizacao}</Text>
-            <TouchableOpacity style={styles.deleteButton} onPress={() => handleDelete(item.id)}>
-              <Text style={styles.deleteButtonText}>Apagar</Text>
-            </TouchableOpacity>
-          </View>
-        ))}
+        {dispositivos.map((item) => {
+          const pl = getPlanta(item.planta);
+          return (
+            <View key={item.id} style={styles.card}>
+              <Text style={styles.nome}>{item.nome}</Text>
+              <Text style={styles.info}>Planta: {item.planta}</Text>
+              {pl && (
+                <Text style={styles.info}>
+                  Sol por dia: <Text style={{fontWeight:'700'}}>{pl.solHorasMin}–{pl.solHorasMax} h</Text>
+                </Text>
+              )}
+              <Text style={styles.info}>Bateria: {item.bateria}%</Text>
+              <Text style={styles.info}>Localização: {item.localizacao}</Text>
+
+              <View style={{ flexDirection: 'row', gap: 10, marginTop: 12 }}>
+                <TouchableOpacity style={styles.chartButton} onPress={() => abrirGraficos(item)}>
+                  <Text style={styles.chartButtonText}>Ver gráficos</Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity style={styles.deleteButton} onPress={() => handleDelete(item.id)}>
+                  <Text style={styles.deleteButtonText}>Apagar</Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+          );
+        })}
       </ScrollView>
     </View>
   );
@@ -69,24 +103,19 @@ const styles = StyleSheet.create({
   card: { backgroundColor: '#fff', padding: 20, borderRadius: 10, marginBottom: 16, elevation: 4 },
   nome: { fontSize: 18, fontWeight: 'bold', color: '#0A2E36' },
   info: { fontSize: 14, color: '#333', marginTop: 4 },
-  menuContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    backgroundColor: '#0A2E36',
-    paddingVertical: 10
-  },
-  menuIcon: { width: 40, height: 40 },
   deleteButton: {
     backgroundColor: '#e53935',
     paddingVertical: 6,
     paddingHorizontal: 16,
     borderRadius: 8,
-    marginTop: 12,
     alignSelf: 'flex-end',
   },
-  deleteButtonText: {
-    color: '#fff',
-    fontWeight: 'bold',
-    fontSize: 14,
+  deleteButtonText: { color: '#fff', fontWeight: 'bold', fontSize: 14 },
+  chartButton: {
+    backgroundColor: '#0A2E36',
+    paddingVertical: 6,
+    paddingHorizontal: 16,
+    borderRadius: 8,
   },
+  chartButtonText: { color: '#fff', fontWeight: 'bold', fontSize: 14 },
 });

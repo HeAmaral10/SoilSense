@@ -41,7 +41,7 @@ export default function RegisterScreen({ navigation }) {
     }
 
     try {
-      const res = await fetch('http://172.31.144.1:3000/usuarios', {
+      const res = await fetch('http://localhost:3000/usuarios', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
